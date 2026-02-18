@@ -1,22 +1,53 @@
-import React from 'react';
-import { View, StyleSheet, StatusBar,Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
-import Myimage from "./assets/adaptive-icon.png"
+import { Button, TextInput, Chip } from 'react-native-paper';
+
 const Component = () => {
+
   const insets = useSafeAreaInsets();
-  console.log(insets)
+
+  const [input, setinput] = useState("");
+  const [store, setstore] = useState([]);
+  const addToArray = () => {
+    if (input.trim() !== "") {
+      setstore([...store, input]);
+      setinput("");
+    }
+  };
+const ClosedHandle = (deleteItem) => {
+  const data = store.filter((item) => item !== deleteItem);
+  setstore(data);
+ };
+
+
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <View style={[
-          styles.statusBar,{ height: insets.top }]} 
-    />  
-    <View style={styles.body}>
-        <View style={styles.part1}></View>
-        <View style={styles.part2}></View>
-    </View>
+      <View style={[styles.statusBar, { height: insets.top }]} />
 
+      
+      <TextInput
+       placeholder='enter the text' value={input} onChangeText={setinput}
+      />
+
+      <Button mode="contained" onPress={addToArray}>
+        Add
+      </Button>
+
+       <View style={{ margin: 20, flexDirection: "row", flexWrap: "wrap" }}>
+        {
+        store.map((item, index) => (
+          <Chip
+            key={index}
+            style={{ margin: 5 }}
+            onClose={() => ClosedHandle(item)}
+          >
+            {item}
+          </Chip>
+        ))
+        }
+      </View>  
     </>
   );
 };
@@ -25,28 +56,6 @@ export default Component;
 
 const styles = StyleSheet.create({
   statusBar: {
-    backgroundColor: '#e16f12'
+    backgroundColor: "black",
   },
-  body:{
-    width:"100%",
-    height:900,
-    borderWidth:10,
-    borderColor:"red",
-    position:"relative"
-  },
-  part1:{
-    width:"20%",
-    height:100,
-    backgroundColor:"red",
-    position:"relative",
-    top:"30%",
-    left:"40%"
-  },
-   part2:{
-    width:"20%",
-    height:100,
-    backgroundColor:"yellow",
-    position:"absolute",
-    left:"50%"
-  }
 });
