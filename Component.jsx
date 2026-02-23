@@ -94,7 +94,7 @@ const Component = () => {
         title="Profile"
         left={() => <List.Icon icon="account" />}
       />
-
+ 
       <List.Item
         title="Orders"
         left={() => <List.Icon icon="cart" />}
