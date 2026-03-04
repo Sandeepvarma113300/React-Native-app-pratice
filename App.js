@@ -6,35 +6,36 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./Home";
 import Contact from "./Contact";
 import { Icon } from "react-native-paper";
+import MediaPicker from "./MediaPicker";
 const App = () => {
-  const Stack=createNativeStackNavigator();
+  // const Stack=createNativeStackNavigator();
   return (
-  //   <SafeAreaProvider>
-  //   {/* <Component /> */}
-
-  // </SafeAreaProvider>
-  <NavigationContainer>
-    <Stack.Navigator screenOptions={{
-      // title:"sandeep",
-      // headerShown:false,
-      headerStyle:{
-        backgroundColor:"skyblue"
-      },
-      headerTintColor:"black",
-      headerTitleStyle:{
-        fontSize:20
-      },
-      headerTitleAlign:"center",
-      headerRight:()=> <Icon source={"bell"} size={24}/>,
-        // headerLeft:() => <Icon source={"home"} size={24}/>,
-        //headerBackButtonDisplayMode:"minimal",
-        animation:"fade"
+  // <NavigationContainer>
+  //   <Stack.Navigator screenOptions={{
+  //     // title:"sandeep",
+  //     // headerShown:false,
+  //     headerStyle:{
+  //       backgroundColor:"skyblue"
+  //     },
+  //     headerTintColor:"black",
+  //     headerTitleStyle:{
+  //       fontSize:20
+  //     },
+  //     headerTitleAlign:"center",
+  //     headerRight:()=> <Icon source={"bell"} size={24}/>,
+  //       // headerLeft:() => <Icon source={"home"} size={24}/>,
+  //       //headerBackButtonDisplayMode:"minimal",
+  //       animation:"fade"
   
-    }}>
-      <Stack.Screen name="Home" component={Home}/>
-      <Stack.Screen name="Contact" component={Contact}/>
-    </Stack.Navigator>
-  </NavigationContainer>
+  //   }}>
+  //     <Stack.Screen name="Home" component={Home}/>
+  //     <Stack.Screen name="Contact" component={Contact}/>
+  //   </Stack.Navigator>
+  // </NavigationContainer>
+   <SafeAreaProvider>
+   <MediaPicker/>
+</SafeAreaProvider>
+
 
   );
 };
