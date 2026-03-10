@@ -7,6 +7,7 @@ import Home from "./Home";
 import Contact from "./Contact";
 import { Icon } from "react-native-paper";
 import MediaPicker from "./MediaPicker";
+import FingerPrint from "./FingerPrint"
 const App = () => {
   // const Stack=createNativeStackNavigator();
   return (
@@ -33,7 +34,7 @@ const App = () => {
   //   </Stack.Navigator>
   // </NavigationContainer>
    <SafeAreaProvider>
-   <MediaPicker/>
+   <FingerPrint/>
 </SafeAreaProvider>
 
 

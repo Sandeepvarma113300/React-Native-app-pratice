@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StatusBar, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button, Text } from 'react-native-paper';
+import { Button, Text,Card } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 
 const MediaPicker = () => {
@@ -39,17 +39,17 @@ const MediaPicker = () => {
 
       {
         imagePath
-          ? <View>
+          ? <Card>
               {
                 imagePath.map((ele, index) => (
                   <Image
                     key={index}
                     source={{ uri: ele.uri }}
-                    style={{ width: 200, height: 200, margin: 10 }}
+                    style={{ width: 200, height: 200, margin: 10 }}         
                   />
                 ))
               }
-            </View>
+            </Card>
           : <Text>No Images selected</Text>
       }
     </>
